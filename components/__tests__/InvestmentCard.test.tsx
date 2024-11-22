@@ -13,6 +13,10 @@ describe('InvestmentCard', () => {
     );
 
     expect(getByText('MXRF11')).toBeTruthy();
+    expect(getByText('Rendimento: R$ 0,09')).toBeTruthy();
+    expect(getByText('R$ 11,52')).toBeTruthy();
+    expect(getByText('DAQUI A 2 DIAS')).toBeTruthy();
+    
   });
 
   it('displays alert', () => {
@@ -25,10 +29,10 @@ describe('InvestmentCard', () => {
       <InvestmentCard code="MXRF11" earnings="Rendimento: R$ 0,09" amount="R$ 11,52" date="DAQUI A 2 DIAS" />
     );
 
-    const botao_mais_detalhes = getByText("MXRF11")
+    const botao_mais_detalhes = getByText("Mais detalhes")
 
     //presiona o botão
-    fireEvent(getByText("Rendimento: R$ 0,09"), 'click')
+    fireEvent((botao_mais_detalhes), 'click')
 
     expect(Alert.alert).toHaveBeenCalled();
   });
